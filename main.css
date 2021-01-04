@@ -19,6 +19,14 @@ body {
 	margin: 0;
 }
 
+button:active, button:focus {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
 .container {
 	max-width: 1170px;
 	margin: auto;
@@ -31,7 +39,11 @@ header img {
 
 .nav {
 	display: flex;
-	flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    top: 0;
+    width: 100%;
+    background: #fff;
 }
 
 .menu {
@@ -39,6 +51,57 @@ header img {
 	margin-left: auto;
 	padding: 0;
 	margin-top: 25px;
+}
+
+.menu_btn {
+	display: flex;
+	flex-direction: column;
+    width: 40px;
+    height: 40px;
+    right: 20px;
+    top: 15px;
+    background-color: #ededf1;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+}
+
+.menu_btn span {
+	content: "";
+	position: relative;
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #000;
+    margin-bottom: 5px;
+}
+
+.menu_btn span:last-child {
+	margin-bottom: 0px;
+}
+
+.menu_btn input[type="checkbox"] {
+	position: absolute;
+	cursor: pointer;
+	width: 100%;
+    height: 100%;
+    opacity: 0;
+	z-index: 3;
+}
+
+.menu_btn input:checked ~ span:nth-child(2) {
+	transform: rotate(45deg);
+	margin: 0;
+}
+
+.menu_btn input:checked ~ span:nth-child(3) {
+    transform: rotate(-45deg);
+    margin-top: -2px;
+}
+
+.menu_btn input:checked ~ span:nth-child(4) {
+    opacity: 0;
 }
 
 .menu li {
@@ -145,7 +208,8 @@ header img {
 	margin-right: 15px;
 	font-size: 12px;
 	font-weight: 900;
-	padding: 7px 18px 13px 20px;
+	padding: 12px 18px;
+    text-transform: uppercase;
 }
 
 .button__link { 
@@ -196,6 +260,24 @@ header img {
 	align-self: flex-start;
 }
 
+.portfolio__works .item{
+	background-image: url('images/work2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.portfolio__works .item::after {
+    content: '';
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: #ffe100f0;
+}
+
+.portfolio__works .item:hover:after{
+	cursor: pointer;
+	display: block;
+}
 
 .portfolio__button {
 	display: block;
@@ -207,7 +289,7 @@ header img {
 
 .portfolio__button .button__link {
 	font-family: 'Montserrat', 'sans-serif';
-	font-size: 12px;
+	font-size: 16px;
 }
 
 .partners {
@@ -316,6 +398,9 @@ header img {
 .blog__articles_img {
 	width: 100%;
 	height: 280px;
+	background-image: url(images/article1.jpg);
+    background-position: center;
+    background-size: cover;
 	background-color: #ededf1;
 }
 
@@ -324,14 +409,13 @@ header img {
 	font-family: 'Montserrat-Extra Bold';
 	font-size: 20px;
 	margin-top: 30px;
+	margin-bottom: 15px;
 }
 
 .blog__articles__description {
-	/*margin-left: 25px;*/
 }
 
 .blog__articles__description h6 + .description {
-	/*margin-left: -5px;*/
 	margin-bottom: 20px;
 }
 
@@ -420,7 +504,7 @@ header img {
 
 .contact__contacts .item span {
 	font-family: 'Montserrat';
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: bold;
 }
 
@@ -459,6 +543,7 @@ header img {
 	align-items: center;
 	width: 1170px;
 	margin: auto;
+	justify-content: space-between;
 }
 
 .footer__container .item {
