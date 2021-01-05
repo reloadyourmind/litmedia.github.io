@@ -196,6 +196,7 @@ header img {
 .hello__image {
 	background-color: #ededf1;
 	height: 540px;
+	min-width: 450px;
 	flex-grow: 1;
 	background-image: url(images/article1.jpg);
     background-size: cover;
@@ -446,7 +447,7 @@ header img {
 }
 
 .contact__message {
-	flex-basis: 570px;
+	flex-basis: 550px;
 }
 
 .contact__image {
@@ -675,6 +676,14 @@ header img {
 	.portfolio__works .item {
 		flex-grow: 1;
 		margin-bottom: 15px;
+	}
+
+	.contact__contacts {
+	    flex-direction: column;
+	}
+
+	.contact__contacts .item, .contact__image {
+		margin-right: 0px;
 	}
 
 	.blog__articles .item {
