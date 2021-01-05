@@ -677,6 +677,13 @@ header img {
 		margin-bottom: 15px;
 	}
 
+	.blog__articles .item {
+		flex-basis: auto;
+	    flex-grow: 1;
+	    height: 460px;
+	    margin-right: 0px;
+	}
+
 	.portfolio__works {
 		flex-direction: column;
 	}
