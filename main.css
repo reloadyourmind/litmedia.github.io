@@ -84,11 +84,11 @@ header img {
 }
 
 .menu_btn span::before {
-	top: 6px;
+	top: -6px;
 }
 
 .menu_btn span::after {
-	top: -6px;
+	top: 6px;
 }
 
 .menu_btn span:last-child {
@@ -102,19 +102,20 @@ header img {
     height: 100%;
     opacity: 0;
 	z-index: 3;
-}
 
-.menu_btn input:checked ~ span {
-	transform: rotate(45deg);
 }
 
 .menu_btn input:checked ~ span::before {
-    transform: rotate(-90deg);
-    top: 0px;
+	transform: rotate(90deg);
+	top: 0;
+}
+
+.menu_btn input:checked ~ span {
+    transform: rotate(45deg);
 }
 
 .menu_btn input:checked ~ span::after {
-    display: none;
+	display: none;
 }
 
 .menu li {
@@ -273,7 +274,7 @@ header img {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
-	justify-content: flex-end;
+	justify-content: center;
 	align-self: flex-start;
 }
 
