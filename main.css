@@ -600,7 +600,6 @@ header img {
 
 .portfolio__works .item {
 	height: 300px;
-	flex-basis: 370px;
 	background-color: #ededf1;
 }
 
@@ -660,7 +659,7 @@ header img {
 }
 
 @media(max-width: 1200px) {
-	
+
 	.menu_btn input:checked .nav > .menu {
 		display: flex;
 	}
@@ -670,5 +669,23 @@ header img {
     	position: fixed;
     	height: 100%;
 	}		
+}
+
+@media(max-width: 768px) {
+	.portfolio__works .item {
+		flex-grow: 1;
+		margin-bottom: 15px;
+	}
+
+	.portfolio__works {
+		flex-direction: column;
+	}
+}
+
+@media(min-width: 768px) and (max-width: 1200px) {
+	.portfolio__works .item {
+		flex: 48%;
+		margin: 0px 15px 15px 0px;
+	}
 }
 
