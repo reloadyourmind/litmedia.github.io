@@ -38,18 +38,18 @@
     <section class="portfolio container" id="cases">
         <h2 class="portfolio__heading heading">Кейсы</h2>
         <ul class="portfolio__menu">
-            <li class="item active"><a class="button__link" href="#">Всё</a></li>
-            <li class="item"><a class="button__link" href="#">Брендинг</a></li>
-            <li class="item"><a class="button__link" href="#">Seo</a></li>
-            <li class="item"><a class="button__link" href="#">Разработка</a></li>
+            <li class="item active"><a data-group="all" class="button__link" href="#">Всё</a></li>
+            <li class="item"><a data-group="brand" class="button__link" href="#">Брендинг</a></li>
+            <li class="item"><a data-group="seo" class="button__link" href="#">Seo</a></li>
+            <li class="item"><a data-group="dev" class="button__link" href="#">Разработка</a></li>
         </ul>
         <div class="portfolio__works">
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div> 
+            <div class="item" data-work="dev"></div>
+            <div class="item" data-work="dev"></div>
+            <div class="item" data-work="brand"></div>
+            <div class="item" data-work="brand"></div>
+            <div class="item" data-work="seo"></div>
+            <div class="item" data-work="dev"></div> 
         </div>
         <button class="portfolio__button button"><a class="button__link" href="#">Загрузить ещё</a></button>
     </section>
@@ -178,5 +178,50 @@
                 <div class="item"><a class="button__link" href="#"><span>Вверх</span><i class="arrow up"></i></a></div>
             </div>
         </footer>
+        <script>
+            
+            [...document.querySelectorAll('.portfolio__menu > .item > a')].forEach(item => {
+                item.addEventListener('click', elem => {
+                    elem.preventDefault();
+                    console.log(elem.target.dataset.group)
+                    filterElements(elem.target.dataset.group);
+                });
+            });
+
+            const filterElements = group => {
+                let elements = document.querySelectorAll('.portfolio__works > .item');
+                if (group === "all") group = "";
+                for (let i = 0; i < elements.length; i++) {
+                    removeClass(elements[i], "show");
+                    if (elements[i].className.indexOf(group) > -1) {
+                        addClass(elements[i], "show");
+                    }
+                }
+            }
+
+            const addClass = (element, name) => {
+                let classArray, nameArray;
+                classArray = element.className.split(" ");
+                nameArray = name.split(" ");
+                for (let i = 0; i < nameArray.length; i++) {
+                    if(classArray.indexOf(nameArray[i]) == -1) {
+                        element.className += " " + nameArray[i];
+                    }
+                }
+            }
+
+            /*const removeClass = (element, name) => {
+                let classArray, nameArray;
+                classArray = element.className.split(" ");
+                nameArray = name.split(" ");
+                for (let i = 0; i < nameArray.length; i++) {
+                    while (classArray.indexOf(nameArray[i])) {
+                        classArray.splice(classArray.indexOf(nameArray[i], 1))
+                    }
+                }
+                element.className = classArray.join(" ");
+            }*/
+
+        </script>
 </body>
 </html>
