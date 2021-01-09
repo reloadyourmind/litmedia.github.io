@@ -179,25 +179,30 @@
             </div>
         </footer>
         <script>
-            
-            [...document.querySelectorAll('.portfolio__menu > .item > a')].forEach(item => {
+            let links = document.querySelectorAll('.portfolio__menu > .item > a');
+            [...links].forEach(item => {
                 item.addEventListener('click', elem => {
                     elem.preventDefault();
-                    //elem.parentNode.classList.remove('active');
-                    console.log(elem.parentNode);
+                    [...links].forEach(item => {
+                        if(item.parentNode.classList.contains('active')) { item.parentNode.classList.remove('active');
+                        }
+                    });
                     elem.target.parentNode.classList.add('active');
-                    //console.log(elem.target.dataset.group);
                     filterElements(elem.target.dataset.group);
                 });
             });
 
-            const filterElements = group => {
+            const filterElements = (group = "all") => {
                 let elements = document.querySelectorAll('.portfolio__works > .item');
                 elements.forEach(item => {
-                    item.style.display = "flex";
-                    if(item.dataset.work !== group) {
+                    if(group === "all") {
+                        item.style.display = "flex";
+                    }
+                    else if(item.dataset.work === group) {
+                        item.style.display = "flex";
+                    }
+                    else {
                         item.style.display = "none";
-                        console.log(item.dataset.work);
                     }
                 });
             }

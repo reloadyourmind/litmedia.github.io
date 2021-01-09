@@ -236,21 +236,13 @@ header img {
 	font-weight: 900;
 }
 
-.portfolio__menu .item:nth-child(1) {
-	margin-right: 16px;
-}
 
-.portfolio__menu .item:nth-child(2) {
+.portfolio__menu .item {
 	margin-right: 6px;
-}
-
-.portfolio__menu .item:nth-child(3) {
-	margin-right: 3px;
 }
 
 .portfolio__menu .item:last-child { 
 	margin-right: 0;
-	padding-right: 0;
 }
 
 .portfolio__menu .active {
